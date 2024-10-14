@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Empleado</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"></head></head>
+<body>
+    <div class="container mt-5">
+        <h2>Agregar Empleado</h2>
+        <form th:action="@{/empleado/registrar_empleado}" th:object="${empleado}" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="dniEmpleado">DNI del Empleado</label>
+                <input type="text" th:field="*{DNI}" class="form-control" id="DNI del empleado" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre del Empleado</label>
+                <input type="text" th:field="*{nombre}" class="form-control" id="nombre">
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido el Empleado</label>
+                <input type="text" th:field="*{apellido}" class="form-control" id="apellido">
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" th:field="*{fechaNacimiento}" class="form-control" id="fechaNacimiento">
+            </div>
+			<div class="form-group">
+			     <label for="direccion">Direccion</label>
+			     <input type="text" th:field="*{direccion}" class="form-control" id="direccion">
+			</div>
+			<div class="form-group">
+				 <label for="correo">Correo</label>
+				 <input type="text" th:field="*{correo}" class="form-control" id="correo">
+			</div>
+			
+            <div class="form-group">
+                <label for="areaEntity">Area de Cargo</label>
+                <select th:field="*{areaEntity}" class="form-control" id="areaEntity" required>
+                    <option th:each="area : ${areas}" 
+                            th:value="${area.areaId}" 
+                            th:text="${area.nombreArea}">
+                    </option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Empleado</button>
+        </form>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

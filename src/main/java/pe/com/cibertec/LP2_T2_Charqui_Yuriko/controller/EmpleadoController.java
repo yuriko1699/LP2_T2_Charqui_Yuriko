@@ -1,6 +1,6 @@
 package pe.com.cibertec.LP2_T2_Charqui_Yuriko.controller;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -46,7 +46,7 @@ public class EmpleadoController {
         empleadoService.crearEmpleado(user);
         return "redirect:/";
     }
-    }
+    
 
     @GetMapping("/editar_empleado/{dni_empleado}")
     public String mostrarEditarEmpleado (@PathVariable("dni_empleado") String dniempleado, Model model){
@@ -56,7 +56,7 @@ public class EmpleadoController {
     }
     @PostMapping("/editar_empleado/{dni_empleado}")
         public String editarEmpleado (@PathVariable("dni_empleado") String dniempleado,
-        @ModelAttribute("user") EmpleadoEntity user, Model model{
+        @ModelAttribute("user") EmpleadoEntity user, Model model){
             empleadoService.actualizarEmpleado(dniempleado, user);
             return "redirect:/";
         }
@@ -71,4 +71,4 @@ public class EmpleadoController {
             model.addAttribute("user",empleadoEncontrado);
             return "redirect:/";
     }
-
+}

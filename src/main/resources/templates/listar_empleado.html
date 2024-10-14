@@ -22,16 +22,24 @@
         </thead>
         <tbody>
         <tr th:each="empleado : ${listaemple}">
-            <td th:text="${producto.dniempleado}"></td>
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.apellido}"></td>
-            <td th:text="${producto.fechaNacimiento}"></td>
-            <td th:text="${producto.f}"></td>
-            <td th:text="${producto.categoriaEntity.nombreCategoria}"></td>
+            <td th:text="${empleado.dniempleado}"></td>
+            <td th:text="${empleado.nombre}"></td>
+            <td th:text="${empleado.apellido}"></td>
+            <td th:text="${empleado.fechaNacimiento}"></td>
+            <td th:text="${empleado.direccion}"></td>
+			<td th:text="${empleado.correo}"></td>
+            <td th:text="${empleado.areaEntity.nombreArea}"></td>
+			<td>
+			<a th:href="@{/detalle_empleado/{id}(id=${user.empleadoDNI})}" class="btn btn-info">Ver</a> |
+			<a th:href="@{/editar_empleado/{id}(id=${user.empleadoDNI})}" class="btn btn-warning">Editar</a> 
+			</td>
         </tr>
         </tbody>
     </table>
 </div>
-<script src="/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

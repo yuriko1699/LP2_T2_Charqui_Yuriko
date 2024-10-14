@@ -37,8 +37,7 @@ public class EmpleadoEntity {
     @Column (name = "correo", nullable = false, length = 45)
     private String correo;
 
-    @Id
-    @Column (name = "area_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer areaId;
+    @ManyToOne
+    @JoinColumn (name = "area_id")
+    private AreaEntity area;
 }
